@@ -19,8 +19,9 @@ export class UserController {
 
   @Post()
   @UsePipes(new ValidationPipe({ whitelist: true }))
-  create(@Body() createUserDto: CreateUserDto) {
+  async create(@Body() createUserDto: CreateUserDto) {
     console.log('createUserDto', createUserDto);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     return this.userService.create(createUserDto);
   }
 
