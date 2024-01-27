@@ -28,7 +28,6 @@ export class UserController {
   }
 
   @Get()
-  @UseGuards(UserGuard)
   findAll() {
     return this.userService.findAll();
   }
@@ -44,6 +43,7 @@ export class UserController {
     return this.userService.update(+id, updateUserDto);
   }
 
+  @UseGuards(UserGuard)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.userService.remove(+id);

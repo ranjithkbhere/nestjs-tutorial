@@ -7,10 +7,10 @@ export class UserGuard implements CanActivate {
     const request = ctx.getRequest();
     if (request.headers.authorization) {
       const token = request.headers.authorization.split(' ')[1];
-      if (token !== 'shameel-token') {
-        return false;
+      if (token === 'shameel-token') {
+        return true;
       }
     }
-    return true;
+    return false;
   }
 }
