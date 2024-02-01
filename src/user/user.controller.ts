@@ -19,6 +19,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { UserGuard } from './user.guard';
 import { UserInterceptor } from './user.interceptor';
 import { UserFilter } from './user.filter';
+import { UserForbiddenException } from './userForbidden.exception';
 
 @UseInterceptors(UserInterceptor)
 @Controller('user')
@@ -43,6 +44,7 @@ export class UserController {
   @Get(':id')
   findOne(@Param('id') id: number) {
     console.log('id', id, typeof id);
+    throw new UserForbiddenException();
     return this.userService.findOne(id);
   }
 
