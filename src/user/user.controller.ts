@@ -11,12 +11,14 @@ import {
   UseGuards,
   UseInterceptors,
   UnauthorizedException,
+  UseFilters,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserGuard } from './user.guard';
 import { UserInterceptor } from './user.interceptor';
+import { UserFilter } from './user.filter';
 
 @UseInterceptors(UserInterceptor)
 @Controller('user')
@@ -32,6 +34,7 @@ export class UserController {
   }
 
   @Get()
+  @UseFilters(UserFilter)
   findAll() {
     throw new UnauthorizedException();
     return this.userService.findAll();
