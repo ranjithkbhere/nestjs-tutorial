@@ -10,6 +10,7 @@ import {
   ValidationPipe,
   UseGuards,
   UseInterceptors,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -32,6 +33,7 @@ export class UserController {
 
   @Get()
   findAll() {
+    throw new UnauthorizedException();
     return this.userService.findAll();
   }
 
