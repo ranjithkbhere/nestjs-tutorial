@@ -9,12 +9,15 @@ import {
   UsePipes,
   ValidationPipe,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserGuard } from './user.guard';
+import { UserInterceptor } from './user.interceptor';
 
+@UseInterceptors(UserInterceptor)
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
