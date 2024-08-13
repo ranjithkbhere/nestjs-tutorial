@@ -1,0 +1,14 @@
+---
+-  hosts: ansible
+
+   tasks:
+   - name: Create docker image
+
+     command: docker build -t nodeapp:latest .
+     args:
+       chdir: /opt/docker
+   - name: Create tag to push image onto dockerhub
+     command: docker tag nodeapp:latest ranjithkumarb/nodeapp:latest
+
+   - name: Pusj docker image to dockerhub
+     command: docker push ranjithkumarb/nodeapp:latest

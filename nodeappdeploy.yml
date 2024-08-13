@@ -1,0 +1,15 @@
+---
+- hosts: dockerhost
+  become: true
+  tasks:
+  - name: Stop existing container
+    command: docker stop nodeapp-server
+    ignore_errors: yes
+  - name: Remove Container
+    command: docker rm nodeapp-server
+    ignore_errors: yes
+  - name: Remove image
+    command: docker rmi ranjithkumarb/nodeapp:latest
+    ignore_errors: yes
+  - name: Create container
+    command: docker run -d --name nodeapp-server -p 3000:3000 ranjithkumarb/nodeapp:latest
