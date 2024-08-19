@@ -1,6 +1,6 @@
 echo Adding AWS environment variables;
-#export AWS_ACCESS_KEY_ID="AKIA47CRYZ2P4XVPVLZM";
-#export AWS_SECRET_ACCESS_KEY="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";
+export AWS_ACCESS_KEY_ID="Key here";
+export AWS_SECRET_ACCESS_KEY="Key here";
 pwd;
 echo Changing directory;
 cd ${WORKSPACE};
