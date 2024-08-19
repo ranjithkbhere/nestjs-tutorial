@@ -1,6 +1,5 @@
-echo Adding AWS environment variables;
+#echo Adding AWS environment variables;
 #Add AWS Credentials here
-pwd;
 echo Changing directory;
 cd ${WORKSPACE};
 terraform init;
