@@ -3,6 +3,6 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class AppService {
   getHello(): string {
-    return 'Hello World!, Testing Terraform Script in Jenkins';
+    return 'Hello World!, Testing CI/CD pipeline';
   }
 }

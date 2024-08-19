@@ -1,0 +1,6 @@
+sudo mkdir -p /opt/docker
+sudo cp -r . /opt/docker
+sudo rm -f /home/jenkinsuser/.ssh/known_hosts
+sudo touch /home/jenkinsuser/.ssh/known_hosts
+sudo chown jenkinsuser /home/jenkinsuser/.ssh/known_hosts
+sudo ssh-keyscan -H 3.210.220.222 >> /home/jenkinsuser/.ssh/known_hosts

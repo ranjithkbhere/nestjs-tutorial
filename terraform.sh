@@ -1,0 +1,10 @@
+echo Adding AWS environment variables;
+export AWS_ACCESS_KEY_ID="AKIA47CRYZ2P4XVPVLZM";
+export AWS_SECRET_ACCESS_KEY="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";
+pwd;
+echo Changing directory;
+cd ${WORKSPACE};
+terraform init;
+terraform plan;
+terraform apply --auto-approve;
+echo Terraform script completed!;
