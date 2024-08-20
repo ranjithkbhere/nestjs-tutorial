@@ -1,4 +1,5 @@
 #Add AWS Credentials here
+echo Test
 echo Changing directory;
 cd ${WORKSPACE};
 terraform init;
