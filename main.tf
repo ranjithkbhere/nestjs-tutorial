@@ -30,14 +30,11 @@ resource "aws_instance" "my_instance" {
   user_data = <<-EOF
               #!/bin/bash
               yum update -y
-              echo "Test" >> /var/log/user_data.log 2>&1
               amazon-linux-extras install docker -y
               service docker start
               usermod -aG docker ec2-user
-              echo "Running useradd command" >> /var/log/user_data.log 2>&1
-              useradd ansadmin >> /var/log/user_data.log 2>&1
-              echo "ansadmin:ans@123" | chpasswd >> /var/log/user_data.log 2>&1
-              usermod -aG wheel ansadmin >> /var/log/user_data.log 2>&1
+              useradd ansadmin 
+              usermod -aG wheel ansadmin 
               sudo sed -i 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
               EOF
 
