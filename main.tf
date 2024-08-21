@@ -36,6 +36,7 @@ resource "aws_instance" "my_instance" {
               useradd ansadmin 
               usermod -aG wheel ansadmin 
               sudo sed -i 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+              sudo sed -i 's/^#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config
               EOF
 
   tags = {
